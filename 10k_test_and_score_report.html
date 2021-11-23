@@ -1,0 +1,228 @@
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <title>Orange Report</title>
+
+    <style>
+    html, body, table {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 13px;
+        margin:0px;
+        padding:0;
+        border:0 none;
+    }
+
+    h1, h2 , h3, h4, h5 {
+       padding: 1px;
+       font-size:100%;
+    }
+
+    h1 {
+        color: white;
+        background-color: black;
+        padding: 4px;
+        margin-top: 12px;
+        margin-bottom: 6px;
+    }
+
+    h2 {
+        border-bottom: 1px solid black;
+        padding-left: 2px;
+    }
+
+    ul, table, p {
+        padding: 10px;
+    }
+
+    table {
+        margin-left: -6px;
+    }
+
+    span.timestamp {
+        position: absolute;
+        right: 40px;
+        color:#ddd;
+    }
+
+    div.selected, div.normal {
+        margin: 5px;
+    }
+
+    div.selected {
+        background: #ddd;
+    }
+    @media print{
+        div.selected {
+            background: inherit;
+        }
+        ::-webkit-input-placeholder {
+            color: transparent;
+        }
+    }
+
+    div.content {
+        margin-left: 15px;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 2px 6px 2px 6px;
+    }
+
+    th {
+        font-weight: bold;
+    }
+
+    @media screen {
+        td, th {
+            white-space: nowrap;
+        }
+    }
+
+    .caption {
+        text-align: center;
+        font-size: 90%;
+    }
+
+    img {
+        display: block;
+        margin: auto;
+        max-height: 20cm;
+    }
+
+    span.legend-square {
+        width: 1em;
+        height: 1em;
+        margin-right: 6px;
+        display: inline-block;
+    }
+
+    span.legend-item {
+        margin-right: 24px;
+    }
+
+    textarea {
+        border: 1px solid silver;
+        font-style: italic;
+        width: 100%;
+        height: 4em;
+    }
+
+    .textwrapper {
+        padding: 15px;
+    }
+
+    div.normal textarea:invalid {
+        display: none;
+    }
+
+    div.selected textarea {
+        display: block;
+    }
+
+    @media print{
+        section.section, img {
+            page-break-inside: avoid;
+        }
+    }
+    </style>
+    <script>
+    function scrollToId(id) {
+        var sel_el = document.getElementById(id);
+        if (sel_el != undefined) {
+            sel_el.scrollIntoView();
+            return true;
+        }
+        return false;
+    };
+
+    function setSelectedId(id) {
+        var sel_el = document.getElementsByClassName('selected')[0];
+        if (sel_el != undefined && sel_el.id != id) {
+           sel_el.className = 'normal';
+        }
+        sel_el = document.getElementById(id);
+        if (sel_el != undefined) {
+            sel_el.className = 'selected';
+            return true;
+        }
+        return false;
+    };
+    </script>
+
+</head><body onload="(function (id) {     setSelectedId(id); scrollToId(id); }(&quot;140610485473776&quot;));">
+
+ 
+
+<div id="140611481636288" class="normal" onclick="pybridge._select_item(this.id)"><section class="section"><h1>Test and Score <span class="timestamp">Tue Nov 23 21, 03:39:16</span></h1><div class="content">
+<h2>Settings</h2><ul><b>Sampling type:</b> No sampling, test on testing data<br><b>Target class:</b> Average over classes<br></ul><h2>Scores</h2><table>
+<tbody><tr><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Model</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Train time [s]</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Test time [s]</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">AUC</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">CA</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">F1</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Precision</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Recall</th></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">kNN</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.179</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">1.113</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9926692547612012</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9406666666666667</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9405105137472767</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9426616929663154</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9406666666666667</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">SVM</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">7.383</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">2.761</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9975298381127351</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9436666666666667</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9434464224777247</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9439506600063465</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9436666666666667</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">NN</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">46.628</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.307</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9944381827040243</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9486666666666667</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9485940774784555</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9490653408235555</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9486666666666667</td></tr></tbody></table></div></section>
+
+<div class="textwrapper"><textarea placeholder="Write a comment..." oninput="this.innerHTML = this.value;pybridge._add_comment(this.parentNode.parentNode.id, this.value);">Name: kNN
+Model parameters
+Number of neighbours: 7
+Metric: Euclidean
+Weight: Uniform
+
+Name: SVM
+Model parameters
+SVM type: SVM, C=1.0, ε=0.1
+Kernel: Polynomial, (auto x⋅y + 1.0)4.0
+Numerical tolerance: 0.001
+Iteration limt: 100
+
+Name: NN
+Model parameters
+Hidden layers: 100, 100, 100, 100, 100, 100
+Activation: ReLu
+Solver: Adam
+Alpha: 0.1
+Max iterations: 300
+Replicable training: True</textarea></div></div><div id="140611626389072" class="normal" onclick="pybridge._select_item(this.id)"><section class="section"><h1>kNN <span class="timestamp">Tue Nov 23 21, 03:39:19</span></h1><div class="content">
+<ul><b>Name:</b> kNN<br></ul><h2>Model parameters</h2><ul><b>Number of neighbours:</b> 7<br><b>Metric:</b> Euclidean<br><b>Weight:</b> Uniform<br></ul><h2>Data</h2><ul><b>Data instances:</b> 7000<br><b>Features:</b> pixel0, pixel1, pixel2, pixel3, pixel4, pixel5, pixel6, pixel7, pixel8, pixel9, pixel10, pixel11, pixel12, pixel13, pixel14, pixel15, pixel16, pixel17, pixel18, pixel19, pixel20, pixel21, pixel22, pixel23, pixel24, pixel25, pixel26, pixel27, pixel28, pixel29, pixel30, pixel31, pixel32, pixel33, pixel34, pixel35, pixel36, pixel37, pixel38, pixel39, pixel40, pixel41, pixel42, pixel43, pixel44, pixel45, pixel46, pixel47, pixel48, pixel49, pixel50, pixel51, pixel52, pixel53, pixel54, pixel55, pixel56, pixel57, pixel58, pixel59, pixel60, pixel61, pixel62, pixel63, pixel64, pixel65, pixel66, pixel67, pixel68, pixel69, pixel70, pixel71, pixel72, pixel73, pixel74, pixel75, pixel76, pixel77, pixel78, pixel79, pixel80, pixel81, pixel82, pixel83, pixel84, pixel85, pixel86, pixel87, pixel88, pixel89, pixel90, pixel91, pixel92, pixel93, pixel94, pixel95, pixel96, pixel97, pixel98, pixel99, pixel100, pixel101, pixel102, pixel103, pixel104, pixel105, pixel106, pixel107, pixel108, pixel109, ...  (total: 784 features)<br><b>Target:</b> Digit<br></ul></div></section>
+
+<div class="textwrapper"><textarea placeholder="Write a comment..." oninput="this.innerHTML = this.value;pybridge._add_comment(this.parentNode.parentNode.id, this.value);"></textarea></div></div><div id="140611629947200" class="normal" onclick="pybridge._select_item(this.id)"><section class="section"><h1>Neural Network <span class="timestamp">Tue Nov 23 21, 03:39:20</span></h1><div class="content">
+<ul><b>Name:</b> NN<br></ul><h2>Model parameters</h2><ul><b>Hidden layers:</b> 100, 100, 100, 100, 100, 100<br><b>Activation:</b> ReLu<br><b>Solver:</b> Adam<br><b>Alpha:</b> 0.1<br><b>Max iterations:</b> 300<br><b>Replicable training:</b> True<br></ul><h2>Data</h2><ul><b>Data instances:</b> 7000<br><b>Features:</b> pixel0, pixel1, pixel2, pixel3, pixel4, pixel5, pixel6, pixel7, pixel8, pixel9, pixel10, pixel11, pixel12, pixel13, pixel14, pixel15, pixel16, pixel17, pixel18, pixel19, pixel20, pixel21, pixel22, pixel23, pixel24, pixel25, pixel26, pixel27, pixel28, pixel29, pixel30, pixel31, pixel32, pixel33, pixel34, pixel35, pixel36, pixel37, pixel38, pixel39, pixel40, pixel41, pixel42, pixel43, pixel44, pixel45, pixel46, pixel47, pixel48, pixel49, pixel50, pixel51, pixel52, pixel53, pixel54, pixel55, pixel56, pixel57, pixel58, pixel59, pixel60, pixel61, pixel62, pixel63, pixel64, pixel65, pixel66, pixel67, pixel68, pixel69, pixel70, pixel71, pixel72, pixel73, pixel74, pixel75, pixel76, pixel77, pixel78, pixel79, pixel80, pixel81, pixel82, pixel83, pixel84, pixel85, pixel86, pixel87, pixel88, pixel89, pixel90, pixel91, pixel92, pixel93, pixel94, pixel95, pixel96, pixel97, pixel98, pixel99, pixel100, pixel101, pixel102, pixel103, pixel104, pixel105, pixel106, pixel107, pixel108, pixel109, ...  (total: 784 features)<br><b>Target:</b> Digit<br></ul></div></section>
+
+<div class="textwrapper"><textarea placeholder="Write a comment..." oninput="this.innerHTML = this.value;pybridge._add_comment(this.parentNode.parentNode.id, this.value);"></textarea></div></div><div id="140611626387200" class="normal" onclick="pybridge._select_item(this.id)"><section class="section"><h1>SVM <span class="timestamp">Tue Nov 23 21, 03:39:21</span></h1><div class="content">
+<ul><b>Name:</b> SVM<br></ul><h2>Model parameters</h2><ul><b>SVM type:</b> SVM, C=1.0, ε=0.1<br><b>Kernel:</b> Polynomial, (auto x⋅y + 1.0)<sup>4.0</sup><br><b>Numerical tolerance:</b> 0.001<br><b>Iteration limt:</b> 100<br></ul><h2>Data</h2><ul><b>Data instances:</b> 7000<br><b>Features:</b> pixel0, pixel1, pixel2, pixel3, pixel4, pixel5, pixel6, pixel7, pixel8, pixel9, pixel10, pixel11, pixel12, pixel13, pixel14, pixel15, pixel16, pixel17, pixel18, pixel19, pixel20, pixel21, pixel22, pixel23, pixel24, pixel25, pixel26, pixel27, pixel28, pixel29, pixel30, pixel31, pixel32, pixel33, pixel34, pixel35, pixel36, pixel37, pixel38, pixel39, pixel40, pixel41, pixel42, pixel43, pixel44, pixel45, pixel46, pixel47, pixel48, pixel49, pixel50, pixel51, pixel52, pixel53, pixel54, pixel55, pixel56, pixel57, pixel58, pixel59, pixel60, pixel61, pixel62, pixel63, pixel64, pixel65, pixel66, pixel67, pixel68, pixel69, pixel70, pixel71, pixel72, pixel73, pixel74, pixel75, pixel76, pixel77, pixel78, pixel79, pixel80, pixel81, pixel82, pixel83, pixel84, pixel85, pixel86, pixel87, pixel88, pixel89, pixel90, pixel91, pixel92, pixel93, pixel94, pixel95, pixel96, pixel97, pixel98, pixel99, pixel100, pixel101, pixel102, pixel103, pixel104, pixel105, pixel106, pixel107, pixel108, pixel109, ...  (total: 784 features)<br><b>Target:</b> Digit<br></ul></div></section>
+
+<div class="textwrapper"><textarea placeholder="Write a comment..." oninput="this.innerHTML = this.value;pybridge._add_comment(this.parentNode.parentNode.id, this.value);"></textarea></div></div><div id="140611127612752" class="normal" onclick="pybridge._select_item(this.id)"><section class="section"><h1>Test and Score <span class="timestamp">Tue Nov 23 21, 04:15:42</span></h1><div class="content">
+<h2>Settings</h2><ul><b>Sampling type:</b> No sampling, test on testing data<br><b>Target class:</b> Average over classes<br></ul><h2>Scores</h2><table>
+<tbody><tr><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Model</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Train time [s]</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Test time [s]</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">AUC</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">CA</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">F1</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Precision</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Recall</th></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">kNN</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.195</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">29.815</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9907367076235551</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.932</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9318959128780501</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9359735986201265</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.932</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">SVM</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">8.804</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">13.484</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9975050080197495</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9436666666666667</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9434464224777247</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9439506600063465</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9436666666666667</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">NN</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">84.289</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">3.591</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9944381827040243</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9486666666666667</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9485940774784555</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9490653408235555</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9486666666666667</td></tr></tbody></table></div></section>
+
+<div class="textwrapper"><textarea placeholder="Write a comment..." oninput="this.innerHTML = this.value;pybridge._add_comment(this.parentNode.parentNode.id, this.value);"></textarea></div></div><div id="140610485475216" class="selected" onclick="pybridge._select_item(this.id)"><section class="section"><h1>Test and Score <span class="timestamp">Tue Nov 23 21, 04:17:53</span></h1><div class="content">
+<h2>Settings</h2><ul><b>Sampling type:</b> No sampling, test on testing data<br><b>Target class:</b> Average over classes<br></ul><h2>Scores</h2><table>
+<tbody><tr><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Model</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Train time [s]</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Test time [s]</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">AUC</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">CA</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">F1</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Precision</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Recall</th></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">kNN</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.195</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">1.041</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9929176174574578</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.944</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9438946767197951</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.945816307924339</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.944</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">SVM</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">8.804</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">13.484</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9975050080197495</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9436666666666667</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9434464224777247</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9439506600063465</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9436666666666667</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">NN</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">84.289</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">3.591</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9944381827040243</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9486666666666667</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9485940774784555</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9490653408235555</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9486666666666667</td></tr></tbody></table></div></section>
+
+<div class="textwrapper"><textarea placeholder="Write a comment..." oninput="this.innerHTML = this.value;pybridge._add_comment(this.parentNode.parentNode.id, this.value);" style="margin: 0px 43px 0px 0px; height: 489px; width: 1124px;">Name: kNN
+Model parameters
+Number of neighbours: 7
+Metric: Euclidean
+Weight: Distance
+
+
+Name: NN
+Model parameters
+Hidden layers: 100, 100, 100, 100, 100, 100
+Activation: ReLu
+Solver: Adam
+Alpha: 0.1
+Max iterations: 300
+Replicable training: True
+
+
+Name: SVM
+Model parameters
+SVM type: SVM, C=1.0, ε=0.1
+Kernel: Polynomial, (auto x⋅y + 1.0)4.0
+Numerical tolerance: 0.001
+Iteration limt: 100</textarea></div></div><div id="140610485473632" class="normal" onclick="pybridge._select_item(this.id)"><section class="section"><h1>kNN <span class="timestamp">Tue Nov 23 21, 04:18:00</span></h1><div class="content">
+<ul><b>Name:</b> kNN<br></ul><h2>Model parameters</h2><ul><b>Number of neighbours:</b> 7<br><b>Metric:</b> Euclidean<br><b>Weight:</b> Distance<br></ul><h2>Data</h2><ul><b>Data instances:</b> 7000<br><b>Features:</b> pixel0, pixel1, pixel2, pixel3, pixel4, pixel5, pixel6, pixel7, pixel8, pixel9, pixel10, pixel11, pixel12, pixel13, pixel14, pixel15, pixel16, pixel17, pixel18, pixel19, pixel20, pixel21, pixel22, pixel23, pixel24, pixel25, pixel26, pixel27, pixel28, pixel29, pixel30, pixel31, pixel32, pixel33, pixel34, pixel35, pixel36, pixel37, pixel38, pixel39, pixel40, pixel41, pixel42, pixel43, pixel44, pixel45, pixel46, pixel47, pixel48, pixel49, pixel50, pixel51, pixel52, pixel53, pixel54, pixel55, pixel56, pixel57, pixel58, pixel59, pixel60, pixel61, pixel62, pixel63, pixel64, pixel65, pixel66, pixel67, pixel68, pixel69, pixel70, pixel71, pixel72, pixel73, pixel74, pixel75, pixel76, pixel77, pixel78, pixel79, pixel80, pixel81, pixel82, pixel83, pixel84, pixel85, pixel86, pixel87, pixel88, pixel89, pixel90, pixel91, pixel92, pixel93, pixel94, pixel95, pixel96, pixel97, pixel98, pixel99, pixel100, pixel101, pixel102, pixel103, pixel104, pixel105, pixel106, pixel107, pixel108, pixel109, ...  (total: 784 features)<br><b>Target:</b> Digit<br></ul></div></section>
+
+<div class="textwrapper"><textarea placeholder="Write a comment..." oninput="this.innerHTML = this.value;pybridge._add_comment(this.parentNode.parentNode.id, this.value);"></textarea></div></div><div id="140611514147024" class="normal" onclick="pybridge._select_item(this.id)"><section class="section"><h1>Neural Network <span class="timestamp">Tue Nov 23 21, 04:18:09</span></h1><div class="content">
+<ul><b>Name:</b> NN<br></ul><h2>Model parameters</h2><ul><b>Hidden layers:</b> 100, 100, 100, 100, 100, 100<br><b>Activation:</b> ReLu<br><b>Solver:</b> Adam<br><b>Alpha:</b> 0.1<br><b>Max iterations:</b> 300<br><b>Replicable training:</b> True<br></ul><h2>Data</h2><ul><b>Data instances:</b> 7000<br><b>Features:</b> pixel0, pixel1, pixel2, pixel3, pixel4, pixel5, pixel6, pixel7, pixel8, pixel9, pixel10, pixel11, pixel12, pixel13, pixel14, pixel15, pixel16, pixel17, pixel18, pixel19, pixel20, pixel21, pixel22, pixel23, pixel24, pixel25, pixel26, pixel27, pixel28, pixel29, pixel30, pixel31, pixel32, pixel33, pixel34, pixel35, pixel36, pixel37, pixel38, pixel39, pixel40, pixel41, pixel42, pixel43, pixel44, pixel45, pixel46, pixel47, pixel48, pixel49, pixel50, pixel51, pixel52, pixel53, pixel54, pixel55, pixel56, pixel57, pixel58, pixel59, pixel60, pixel61, pixel62, pixel63, pixel64, pixel65, pixel66, pixel67, pixel68, pixel69, pixel70, pixel71, pixel72, pixel73, pixel74, pixel75, pixel76, pixel77, pixel78, pixel79, pixel80, pixel81, pixel82, pixel83, pixel84, pixel85, pixel86, pixel87, pixel88, pixel89, pixel90, pixel91, pixel92, pixel93, pixel94, pixel95, pixel96, pixel97, pixel98, pixel99, pixel100, pixel101, pixel102, pixel103, pixel104, pixel105, pixel106, pixel107, pixel108, pixel109, ...  (total: 784 features)<br><b>Target:</b> Digit<br></ul></div></section>
+
+<div class="textwrapper"><textarea placeholder="Write a comment..." oninput="this.innerHTML = this.value;pybridge._add_comment(this.parentNode.parentNode.id, this.value);"></textarea></div></div><div id="140610485473776" class="normal" onclick="pybridge._select_item(this.id)"><section class="section"><h1>SVM <span class="timestamp">Tue Nov 23 21, 04:18:21</span></h1><div class="content">
+<ul><b>Name:</b> SVM<br></ul><h2>Model parameters</h2><ul><b>SVM type:</b> SVM, C=1.0, ε=0.1<br><b>Kernel:</b> Polynomial, (auto x⋅y + 1.0)<sup>4.0</sup><br><b>Numerical tolerance:</b> 0.001<br><b>Iteration limt:</b> 100<br></ul><h2>Data</h2><ul><b>Data instances:</b> 7000<br><b>Features:</b> pixel0, pixel1, pixel2, pixel3, pixel4, pixel5, pixel6, pixel7, pixel8, pixel9, pixel10, pixel11, pixel12, pixel13, pixel14, pixel15, pixel16, pixel17, pixel18, pixel19, pixel20, pixel21, pixel22, pixel23, pixel24, pixel25, pixel26, pixel27, pixel28, pixel29, pixel30, pixel31, pixel32, pixel33, pixel34, pixel35, pixel36, pixel37, pixel38, pixel39, pixel40, pixel41, pixel42, pixel43, pixel44, pixel45, pixel46, pixel47, pixel48, pixel49, pixel50, pixel51, pixel52, pixel53, pixel54, pixel55, pixel56, pixel57, pixel58, pixel59, pixel60, pixel61, pixel62, pixel63, pixel64, pixel65, pixel66, pixel67, pixel68, pixel69, pixel70, pixel71, pixel72, pixel73, pixel74, pixel75, pixel76, pixel77, pixel78, pixel79, pixel80, pixel81, pixel82, pixel83, pixel84, pixel85, pixel86, pixel87, pixel88, pixel89, pixel90, pixel91, pixel92, pixel93, pixel94, pixel95, pixel96, pixel97, pixel98, pixel99, pixel100, pixel101, pixel102, pixel103, pixel104, pixel105, pixel106, pixel107, pixel108, pixel109, ...  (total: 784 features)<br><b>Target:</b> Digit<br></ul></div></section>
+
+<div class="textwrapper"><textarea placeholder="Write a comment..." oninput="this.innerHTML = this.value;pybridge._add_comment(this.parentNode.parentNode.id, this.value);"></textarea></div></div></body></html>
